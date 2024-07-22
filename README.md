@@ -82,7 +82,7 @@ struct zicio zicio_data;
 zicio_init(&zicio_data);
 
 /*
- * Set the size of the data to be obtained by zicio_get_page().
+ * Set the size of the data unit to be obtained with zicio_get_page().
  * In this example, we use 4KB.
  */ 
 zicio_data.read_page_size = 4096;
