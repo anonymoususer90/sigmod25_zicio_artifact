@@ -4,7 +4,7 @@
 
 The key logic for ZicIO's automated I/O control begins with the following functions:
 
-* Initialize the resources and trigger the first I/O
+* Initializing resources and triggering the first I/O
 ```
 // linux/zicio/zicio.c
 SYSCALL_DEFINE1(zicio_u_open, struct zicio_args __user*, zicio_user_args)
