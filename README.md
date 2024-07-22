@@ -75,7 +75,7 @@ $ make test
 #include <libzicio.h>
 ```
 
-2. Initialize and open ZicIO.
+2. Initialize and open the ZicIO channel.
 ```
 struct zicio zicio_data;
 
@@ -101,7 +101,7 @@ zicio_open(&zicio_data);
 do_data_ingestion(&zicio_data, ...);
 ```
 
-3. Use ZicIO.
+3. Use it for data ingestion.
 ```
 do_data_ingestion(struct zicio *zicio_data, ...)
 {
