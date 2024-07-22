@@ -40,6 +40,14 @@ nvme_irq()
         -- nvme_submit_cmd()
 ```
 
+## Implementations on legacy databases
+
+### PostgreSQL
+
+In this paper, we modified PostgreSQL to improve its data access mechanism by replacing a specific function call. We substituted the standard ReadBuffer function, which handles reading data from disk into the buffer, with our custom zicio_get_page function. This change is intended to replace existing PostgreSQL's data access path with our new data access path.
+
+We use our new zicio_get_page function exclusively for sequential scans in query plans. Our approach has limitations; it is not designed for mixed workloads, such as those involving updates. Currently, we only support sequential scans.
+
 ## Instructions to Build ZicIO Kernel
 
 ### QEMU Setting
