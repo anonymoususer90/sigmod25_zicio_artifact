@@ -48,7 +48,7 @@ void do_data_ingestion(struct zicio *zicio_data, ...)
         do_something();
 
         zicio_put_page(zicio_data);
-    } while (zicio_data->put_status != ZICIO_PUT_PAGE_EOF)
+    } while (zicio_data->put_status != ZICIO_PUT_PAGE_EOF);
 }
 ```
 
