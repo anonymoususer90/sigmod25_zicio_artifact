@@ -21,7 +21,7 @@ $ qemu-system-x86_64 \
 
 2. Create NVMe image
 ```
-$ qemu-img create -f qcow2 nvm.img 128G
+$ qemu-img create -f qcow2 nvme.img 128G
 ```
 
 3. Run the QEMU
@@ -32,7 +32,7 @@ $ sudo qemu-system-x86_64 \
 -m 8G \
 -enable-kvm \
 -drive file=ubuntu.img \
--drive file=nvm.img,if=none,id=nvm \
+-drive file=nvme.img,if=none,id=nvm \
 -device nvme,serial=deadbeef,drive=nvm \
 -net user,hostfwd=tcp::12345-:22 \
 -net nic \
