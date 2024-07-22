@@ -75,7 +75,7 @@ $ make test
 #include <libzicio.h>
 ```
 
-2. Initialize and open ZicIO channel.
+2. Initialize and open ZicIO.
 ```
 struct zicio zicio_data;
 
