@@ -72,7 +72,7 @@ $ make test
 
 1. Include libzicio header file
 ```
-#include <libzicio>
+#include <libzicio.h>
 ```
 
 2. Initialize ZicIO
