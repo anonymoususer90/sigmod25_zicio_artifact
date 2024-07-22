@@ -46,14 +46,14 @@ $ ssh -p 12345 username@localhost
 
 ### Install ZicIO
 
-1. Clone this repository
+1. Clone this repository.
 ```
 $ git clone https://github.com/anonymoususer90/sigmod25_zicio_artifact.git
 
 $ cd sigmod25_zicio_artifact
 ```
 
-2. Compile and install ZicIO kernel
+2. Compile and install ZicIO kernel.
 ```
 $ ./build_and_install_zicio_kernel.sh
 
@@ -62,7 +62,7 @@ $ sudo grub-reboot "Advanced options for Ubuntu>Ubuntu, with Linux 5.15.0-zicio+
 $ sudo reboot
 ```
 
-3. Compile and install libzicio
+3. Compile and install libzicio.
 ```
 $ cd sigmod25_zicio_artifact/libzicio
 
@@ -70,12 +70,12 @@ $ make test
 ```
 ## Usage
 
-1. Include libzicio header file
+1. Include libzicio header file.
 ```
 #include <libzicio.h>
 ```
 
-2. Initialize ZicIO
+2. Initialize and open ZicIO channel.
 ```
 struct zicio zicio_data;
 
@@ -99,21 +99,11 @@ for (int i = 0; i < NUM_FILES; i++) {
 zicio_open(&zicio_data);
 
 do_data_ingestion(&zicio_data, ...);
-
-/*
- * Release the resources allocated for ZicIO.
- * Note that this function does not close files.
- */
-zicio_close(&zicio_data);
-
-for (int i = 0; i < NUM_FILES; i++) {
-    close(fd[i]);
-}
 ```
 
-3. Use ZicIO
+3. Use ZicIO.
 ```
-void do_data_ingestion(struct zicio *zicio_data, ...)
+do_data_ingestion(struct zicio *zicio_data, ...)
 {
     do {
         while (zicio_data->get_status != ZICIO_GET_PAGE_SUCCESS)
@@ -123,5 +113,20 @@ void do_data_ingestion(struct zicio *zicio_data, ...)
 
         zicio_put_page(zicio_data);
     } while (zicio_data->put_status != ZICIO_PUT_PAGE_EOF);
+}
+```
+
+4. Close the ZicIO channel.
+```
+do_data_ingestion(&zicio_data, ...);
+
+/*
+ * Release the resources allocated for ZicIO.
+ * Note that this function does not close files.
+ */
+zicio_close(&zicio_data);
+
+for (int i = 0; i < NUM_FILES; i++) {
+    close(fd[i]);
 }
 ```
