@@ -118,7 +118,7 @@ void do_data_ingestion(struct zicio *zicio_data, ...)
         while (zicio_data->get_status != ZICIO_GET_PAGE_SUCCESS)
             zicio_get_page(zicio_data);
 
-        do_something();
+        do_something(zicio_data->page_addr);
 
         zicio_put_page(zicio_data);
     } while (zicio_data->put_status != ZICIO_PUT_PAGE_EOF);
