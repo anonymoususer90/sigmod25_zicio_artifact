@@ -1,6 +1,6 @@
 # ZicIO: Rapid Data Ingestion through DB-OS Co-design
 
-## How to Reproduce Key Results
+## Instructions to Build ZicIO Kernel
 
 ### QEMU Setting
 
