@@ -1,5 +1,45 @@
 # ZicIO: Rapid Data Ingestion through DB-OS Co-design
 
+## How is the ZicIO Kernel Implemented?
+
+The key logic for ZicIO's automated I/O control begins with the following functions:
+
+* Initialize the resources and trigger the first I/O
+```
+// linux/zicio/zicio.c
+SYSCALL_DEFINE1(zicio_u_open, struct zicio_args __user*, zicio_user_args)
+|
+-- sys_zicio_k_open()
+|   |
+|   -- zicio_initialize_resources()
+|       |
+|       -- zicio_allocate_and_initialize_mem() // alocate data buffer and MEMSB
+|       |
+|       -- zicio_mmap_buffers() // map them to the user's page table
+|
+-- zicio_init_read_trigger() // trigger the first I/O
+```
+
+* Automated I/O operation of ZicIO in the NVMe interrupt handler.
+```
+// linux/drivers/host/pci.c
+nvme_irq()
+|
+-- nvme_process_cq()
+    |
+    -- nvme_handle_cqe()
+        |
+        -- zicio_notify_complete_command()
+        |   |
+        |   -- zicio_notify_do_softtimer_irq_cycle()
+        |       |
+        |       -- zicio_prepare_resubmit()
+        |
+        -- zicio_nvme_setup_read_cmd()
+        |
+        -- nvme_submit_cmd()
+```
+
 ## Instructions to Build ZicIO Kernel
 
 ### QEMU Setting
