@@ -15,7 +15,7 @@ $ wget https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso
 $ qemu-system-x86_64 \
 -m 4G \
 -drive file=ubuntu.img,if=virtio,cache=writethrough \
--cdrom ubuntu-20.04.5-live-server-amd64.iso \
+-cdrom ubuntu-20.04.6-live-server-amd64.iso \
 -boot d
 ```
 
