@@ -1,5 +1,58 @@
 # ZicIO: Rapid Data Ingestion through DB-OS Co-design
 
+## Usage
+
+1. Initialize ZicIO
+```
+struct zicio zicio_data;
+
+zicio_init(&zicio_data);
+
+/*
+ * Set the size of the data to be obtained by zicio_get_page().
+ * In this example, we use 4KB.
+ */ 
+zicio_data.read_page_size = 4096;
+
+for (int i = 0; i < NUM_FILES; i++) {
+    fd[i] = open(path[i], O_RDONLY | O_DIRECT);
+    zicio_notify_ranges(&zicio_data, fd[i], start_offset, end_offset);
+}
+
+/*
+ * After completing the above steps, we can call the zicio_open().
+ * This system-call triggers the first I/O of the ZicIO channel.
+ */
+zicio_open(&zicio_data);
+
+do_data_ingestion(&zicio_data, ...);
+
+/*
+ * Release the resources allocated for ZicIO.
+ */
+zicio_close(&zicio_data);
+
+for (int i = 0; i < NUM_FILES; i++) {
+    close(fd[i]);
+}
+```
+
+2. Use ZicIO
+```
+void do_data_ingestion(struct zicio *zicio_data, ...)
+{
+    do {
+        while (zicio_data->get_status != ZICIO_GET_PAGE_SUCCESS)
+            zicio_get_page(zicio_data);
+
+        do_something();
+
+        zicio_put_page(zicio_data);
+    } while (zicio_data->put_status != ZICIO_PUT_PAGE_EOF)
+}
+```
+
+
 ## How to Reproduce Key Results
 
 ### QEMU Setting
