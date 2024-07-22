@@ -62,7 +62,7 @@ $ sudo grub-reboot "Advanced options for Ubuntu>Ubuntu, with Linux 5.15.0-zicio+
 $ sudo reboot
 ```
 
-3. Install libzicio
+3. Compile and install libzicio
 ```
 $ cd sigmod25_zicio_artifact/libzicio
 
