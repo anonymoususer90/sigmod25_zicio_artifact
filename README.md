@@ -44,7 +44,7 @@ $ sudo qemu-system-x86_64 \
 $ ssh -p 12345 username@localhost
 ```
 
-### Install ZicIO
+### Build and Install ZicIO Kernel
 
 1. Clone this repository.
 ```
