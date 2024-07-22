@@ -1,6 +1,6 @@
 # ZicIO: Rapid Data Ingestion through DB-OS Co-design
 
-## How is the ZicIO Kernel Implemented?
+## Automated I/O Control
 
 The key logic for ZicIO's automated I/O control begins with the following functions:
 
