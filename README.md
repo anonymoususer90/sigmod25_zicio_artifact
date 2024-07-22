@@ -102,6 +102,7 @@ do_data_ingestion(&zicio_data, ...);
 
 /*
  * Release the resources allocated for ZicIO.
+ * Note that this function does not close files.
  */
 zicio_close(&zicio_data);
 
