@@ -28,8 +28,8 @@ $ qemu-img create -f qcow2 nvme.img 128G
 ```
 $ sudo qemu-system-x86_64 \
 -cpu Cascadelake-Server \
--smp 8 \
--m 8G \
+-smp 32 \
+-m 128G \
 -enable-kvm \
 -drive file=ubuntu.img \
 -drive file=nvme.img,if=none,id=nvm \
