@@ -2,7 +2,12 @@
 
 ## Usage
 
-1. Initialize ZicIO
+1. Include libzicio header file
+```
+#include <libzicio>
+```
+
+2. Initialize ZicIO
 ```
 struct zicio zicio_data;
 
@@ -37,7 +42,7 @@ for (int i = 0; i < NUM_FILES; i++) {
 }
 ```
 
-2. Use ZicIO
+3. Use ZicIO
 ```
 void do_data_ingestion(struct zicio *zicio_data, ...)
 {
