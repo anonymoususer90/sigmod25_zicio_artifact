@@ -97,8 +97,6 @@ for (int i = 0; i < NUM_FILES; i++) {
  * This system-call triggers the first I/O of the ZicIO channel.
  */
 zicio_open(&zicio_data);
-
-do_data_ingestion(&zicio_data, ...);
 ```
 
 3. Use it for data ingestion.
@@ -118,8 +116,6 @@ do_data_ingestion(struct zicio *zicio_data, ...)
 
 4. Close the ZicIO channel.
 ```
-do_data_ingestion(&zicio_data, ...);
-
 /*
  * Release the resources allocated for ZicIO.
  * Note that this function does not close files.
