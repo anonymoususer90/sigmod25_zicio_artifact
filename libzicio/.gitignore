@@ -1,0 +1,7 @@
+*.o
+*.so
+cscope.*
+tags
+*.swp
+test
+.vscode

@@ -1,0 +1,30 @@
+[mysqld]
+default-tmp-storage-engine=MyISAM
+socket=/opt/nvme//zicio//MySQL//data//mysql.sock
+
+log-bin
+binlog-format=ROW
+default_time_zone='+00:00'
+secure-file-priv=""
+sql_mode = "ONLY_FULL_GROUP_BY,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+performance_schema=OFF
+key-buffer-size=0
+innodb-buffer-pool-size=800M
+
+transaction-isolation=REPEATABLE-READ
+
+basedir=/opt/nvme/zicio/zicio/evaluation/databases/MySQL//mysql
+datadir=/opt/nvme//zicio//MySQL//data/
+socket=/opt/nvme//zicio//MySQL//data//mysql.sock
+port=23456
+lower_case_table_names=1
+max_allowed_packet=1073741824
+
+# log
+general_log=1
+general_log_file=/opt/nvme//zicio//MySQL//data//general.log
+log_error=/opt/nvme//zicio//MySQL//data//error.log
+
+[mysql]
+socket=/opt/nvme//zicio//MySQL//data//mysql.sock
+port=23456

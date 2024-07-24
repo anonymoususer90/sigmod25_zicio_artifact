@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: GPL-2.0
+
+obj-$(CONFIG_ZICIO)	+= zicio.o
+obj-$(CONFIG_ZICIO) += zicio_cmd.o
+obj-$(CONFIG_ZICIO) += zicio_desc.o
+obj-$(CONFIG_ZICIO) += zicio_device.o
+obj-$(CONFIG_ZICIO) += zicio_extent.o
+obj-$(CONFIG_ZICIO) += zicio_files.o
+obj-$(CONFIG_ZICIO) += zicio_ghost.o
+obj-$(CONFIG_ZICIO) += zicio_mem.o
+obj-$(CONFIG_ZICIO) += zicio_firehose_ctrl.o
+obj-$(CONFIG_ZICIO) += zicio_req_timer.o
+obj-$(CONFIG_ZICIO) += zicio_shared_pool.o
+obj-$(CONFIG_ZICIO) += zicio_shared_pool_mgr.o
+obj-$(CONFIG_ZICIO) += zicio_req_submit.o
+obj-$(CONFIG_ZICIO) += zicio_md_flow_ctrl.o
+obj-$(CONFIG_ZICIO) += zicio_nvme_cmd_timer_wheel.o
+obj-$(CONFIG_ZICIO) += zicio_flow_ctrl.o
+obj-$(CONFIG_ZICIO) += zicio_data_buffer_descriptor.o

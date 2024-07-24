@@ -1,0 +1,6 @@
+/Makefile.global
+/Makefile.port
+/Makefile.custom
+
+cscope.*
+tags
